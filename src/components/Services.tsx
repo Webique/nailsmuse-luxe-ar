@@ -2,7 +2,7 @@ import React from 'react';
 import { useLanguage } from './LanguageContext';
 import nailServiceImage from '@/assets/salon-services.jpg';
 import lashServiceImage from '@/assets/salon-products.jpg';
-import wellnessServiceImage from '@/assets/salon-display.jpg';
+import wellnessServiceImage from '@/assets/wellness.jpg';
 
 const Services = () => {
   const { language, isRTL } = useLanguage();

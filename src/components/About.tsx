@@ -9,11 +9,13 @@ const About = () => {
   const translations = {
     en: {
       title: 'About Nails Muse',
-      description: 'Nails Muse is a boutique salon in Abha offering nail artistry, lash enhancements, and wellness care. Licensed specialists use premium, skin-friendly products for a calm, luxury experience.'
+      description: 'Nails Muse is a boutique salon in Abha offering nail artistry, lash enhancements, and wellness care. Licensed specialists use premium, skin-friendly products for a calm, luxury experience.',
+      nailsText: 'Nails'
     },
     ar: {
       title: 'عن نايلز ميوز',
-      description: 'نايلز ميوز صالون بوتيك في أبها يقدم فنون أظافر فاخرة، ورموش احترافية، وتجارب عناية مريحة. فريق مرخص يستخدم منتجات فاخرة وآمنة لبشرة الضيوف في أجواء راقية.'
+      description: 'نايلز ميوز صالون بوتيك في أبها يقدم فنون أظافر فاخرة، ورموش احترافية، وتجارب عناية مريحة. فريق مرخص يستخدم منتجات فاخرة وآمنة لبشرة الضيوف في أجواء راقية.',
+      nailsText: 'الأظافر'
     }
   };
   
@@ -45,12 +47,19 @@ const About = () => {
                   className="w-full h-64 object-cover luxury-hover"
                 />
               </div>
-              <div className="relative overflow-hidden rounded-2xl shadow-luxury">
-                <img 
-                  src={salonLoungeImage}
-                  alt="Nails Muse luxury salon interior lounge"
-                  className="w-full h-64 object-cover luxury-hover"
-                />
+              <div className="space-y-4">
+                <div className="relative overflow-hidden rounded-2xl shadow-luxury">
+                  <img 
+                    src={salonLoungeImage}
+                    alt="Nails Muse luxury salon interior lounge"
+                    className="w-full h-64 object-cover luxury-hover"
+                  />
+                </div>
+                <div className={`text-center ${isRTL ? 'font-arabic' : 'font-poppins'}`}>
+                  <h3 className="text-charcoal font-medium text-lg">
+                    {t.nailsText}
+                  </h3>
+                </div>
               </div>
             </div>
           </div>
