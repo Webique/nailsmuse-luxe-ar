@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLanguage } from './LanguageContext';
 import { MessageCircle, Globe, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -6,6 +6,33 @@ import { Sheet, SheetTrigger, SheetContent, SheetClose } from '@/components/ui/s
 
 const Navbar = () => {
   const { language, toggleLanguage, isRTL } = useLanguage();
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      // Only hide/show on mobile (screen width < 768px)
+      if (window.innerWidth < 768) {
+        if (currentScrollY > lastScrollY && currentScrollY > 100) {
+          // Scrolling down and past 100px - hide navbar
+          setIsScrolled(true);
+        } else {
+          // Scrolling up or at top - show navbar
+          setIsScrolled(false);
+        }
+      } else {
+        // On desktop, always show navbar
+        setIsScrolled(false);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
   
   const translations = {
     en: {
@@ -50,7 +77,7 @@ const Navbar = () => {
   ];
   
   return (
-    <nav className={`fixed top-0 w-full bg-pure-white/95 backdrop-blur-md border-b border-porcelain z-50 ${isRTL ? 'font-arabic' : 'font-poppins'}`}>
+    <nav className={`fixed top-0 w-full bg-pure-white/95 backdrop-blur-md border-b border-porcelain z-50 transition-transform duration-300 ease-in-out ${isScrolled ? '-translate-y-full' : 'translate-y-0'} ${isRTL ? 'font-arabic' : 'font-poppins'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-32">
           {/* Logo */}
