@@ -24,6 +24,14 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				
+				// Brand Colors
+				'ink-black': 'hsl(var(--ink-black))',
+				'charcoal': 'hsl(var(--charcoal))',
+				'porcelain': 'hsl(var(--porcelain))',
+				'pure-white': 'hsl(var(--pure-white))',
+				'pearl': 'hsl(var(--pearl))',
+				
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'
@@ -62,6 +70,11 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				}
+			},
+			fontFamily: {
+				'playfair': ['Playfair Display', 'serif'],
+				'poppins': ['Poppins', 'sans-serif'],
+				'arabic': ['Noto Kufi Arabic', 'sans-serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

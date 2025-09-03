@@ -2,95 +2,81 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Nails Muse Luxury Design System - HSL Colors Only */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Brand Colors */
+    --ink-black: 240 6% 6%;           /* #0F0F10 */
+    --charcoal: 210 8% 11%;           /* #1B1E21 */
+    --porcelain: 210 13% 91%;         /* #E9EAEC */
+    --pure-white: 0 0% 100%;          /* #FFFFFF */
+    --pearl: 210 14% 97%;             /* #F7F7F8 */
+    
+    /* System Colors mapped to brand */
+    --background: var(--pure-white);
+    --foreground: var(--ink-black);
+    
+    --card: var(--pure-white);
+    --card-foreground: var(--ink-black);
+    
+    --popover: var(--pure-white);
+    --popover-foreground: var(--ink-black);
+    
+    --primary: var(--charcoal);
+    --primary-foreground: var(--pure-white);
+    
+    --secondary: var(--porcelain);
+    --secondary-foreground: var(--ink-black);
+    
+    --muted: var(--pearl);
+    --muted-foreground: var(--charcoal);
+    
+    --accent: var(--pearl);
+    --accent-foreground: var(--ink-black);
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: var(--pure-white);
+    
+    --border: var(--porcelain);
+    --input: var(--porcelain);
+    --ring: var(--charcoal);
+    
+    --radius: 0.75rem;
+    
+    /* Luxury Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--pure-white)) 0%, hsl(var(--pearl)) 100%);
+    --gradient-overlay: linear-gradient(180deg, hsl(var(--pure-white) / 0.9) 0%, hsl(var(--pearl) / 0.95) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--pearl)) 0%, hsl(var(--pure-white)) 100%);
+    
+    /* Luxury Shadows */
+    --shadow-luxury: 0 20px 40px -12px hsl(var(--charcoal) / 0.15);
+    --shadow-elegant: 0 10px 30px -8px hsl(var(--charcoal) / 0.12);
+    --shadow-soft: 0 4px 12px -2px hsl(var(--charcoal) / 0.08);
+    
+    /* Transitions */
+    --transition-luxury: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
-
+  
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --background: var(--ink-black);
+    --foreground: var(--pure-white);
+    --card: var(--charcoal);
+    --card-foreground: var(--pure-white);
+    --popover: var(--charcoal);
+    --popover-foreground: var(--pure-white);
+    --primary: var(--pure-white);
+    --primary-foreground: var(--ink-black);
+    --secondary: var(--charcoal);
+    --secondary-foreground: var(--pure-white);
+    --muted: var(--charcoal);
+    --muted-foreground: var(--porcelain);
+    --accent: var(--charcoal);
+    --accent-foreground: var(--pure-white);
+    --border: var(--charcoal);
+    --input: var(--charcoal);
+    --ring: var(--pure-white);
   }
 }
 
@@ -98,8 +84,115 @@ All colors MUST be HSL.
   * {
     @apply border-border;
   }
-
+  
   body {
     @apply bg-background text-foreground;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* Typography Classes */
+  .font-playfair {
+    font-family: 'Playfair Display', serif;
+  }
+  
+  .font-poppins {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .font-arabic {
+    font-family: 'Noto Kufi Arabic', sans-serif;
+  }
+  
+  /* RTL Support */
+  [dir="rtl"] {
+    text-align: right;
+  }
+  
+  [dir="rtl"] .rtl-flip {
+    transform: scaleX(-1);
+  }
+  
+  /* Luxury Animations */
+  .luxury-hover {
+    transition: var(--transition-luxury);
+  }
+  
+  .luxury-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-luxury);
+  }
+  
+  .fade-in {
+    animation: fade-in 0.6s ease-out;
+  }
+  
+  .slide-up {
+    animation: slide-up 0.8s ease-out;
+  }
+}
+
+@layer components {
+  /* Hero Button Variants */
+  .btn-hero {
+    @apply px-8 py-4 bg-charcoal text-pure-white rounded-lg font-medium;
+    @apply luxury-hover;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.025em;
+  }
+  
+  .btn-hero:hover {
+    @apply bg-ink-black;
+  }
+  
+  /* WhatsApp Button */
+  .btn-whatsapp {
+    @apply bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg;
+    @apply luxury-hover;
+    font-weight: 500;
+  }
+  
+  /* Section Headings */
+  .section-heading {
+    @apply text-charcoal font-playfair text-3xl md:text-4xl font-semibold mb-6;
+    letter-spacing: -0.02em;
+  }
+  
+  .section-subheading {
+    @apply text-muted-foreground font-poppins text-lg leading-relaxed;
+  }
+  
+  /* Service Cards */
+  .service-card {
+    @apply bg-card border border-border rounded-xl p-6;
+    @apply luxury-hover;
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .service-card:hover {
+    box-shadow: var(--shadow-elegant);
+  }
+}
+
+/* Keyframes */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
