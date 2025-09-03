@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLanguage } from './LanguageContext';
-import salonImage from '@/assets/salon-interior.jpg';
+import salonExteriorImage from '@/assets/salon-exterior.jpg';
+import salonLoungeImage from '@/assets/salon-lounge.jpg';
 
 const About = () => {
   const { language, isRTL } = useLanguage();
@@ -21,27 +22,36 @@ const About = () => {
   return (
     <section id="about" className="py-20 bg-pearl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${isRTL ? 'lg:grid-flow-col-dense' : ''}`}>
+        <div className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center justify-center ${isRTL ? 'lg:grid-flow-col-dense' : ''}`}>
           {/* Text Content */}
-          <div className={`space-y-8 ${isRTL ? 'lg:col-start-2 text-right' : 'lg:col-start-1'}`}>
-            <div className="slide-up">
-              <h2 className={`section-heading ${isRTL ? 'font-arabic text-right' : ''}`}>
+          <div className={`space-y-8 ${isRTL ? 'lg:col-start-2' : 'lg:col-start-1'} flex flex-col items-center lg:items-start`}>
+            <div className="slide-up text-center lg:text-left">
+              <h2 className={`section-heading ${isRTL ? 'font-arabic' : ''}`}>
                 {t.title}
               </h2>
-              <p className={`section-subheading ${isRTL ? 'font-arabic text-right' : ''}`}>
+              <p className={`section-subheading ${isRTL ? 'font-arabic' : 'font-poppins'}`}>
                 {t.description}
               </p>
             </div>
           </div>
           
-          {/* Image */}
+          {/* Images Grid */}
           <div className={`${isRTL ? 'lg:col-start-1' : 'lg:col-start-2'}`}>
-            <div className="relative overflow-hidden rounded-2xl shadow-luxury">
-              <img 
-                src={salonImage}
-                alt="Nails Muse luxury salon interior"
-                className="w-full h-96 object-cover luxury-hover"
-              />
+            <div className="grid grid-cols-1 gap-6">
+              <div className="relative overflow-hidden rounded-2xl shadow-luxury">
+                <img 
+                  src={salonExteriorImage}
+                  alt="Nails Muse luxury salon exterior"
+                  className="w-full h-64 object-cover luxury-hover"
+                />
+              </div>
+              <div className="relative overflow-hidden rounded-2xl shadow-luxury">
+                <img 
+                  src={salonLoungeImage}
+                  alt="Nails Muse luxury salon interior lounge"
+                  className="w-full h-64 object-cover luxury-hover"
+                />
+              </div>
             </div>
           </div>
         </div>

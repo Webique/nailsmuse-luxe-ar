@@ -51,16 +51,16 @@ const Location = () => {
           </h2>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 justify-items-center">
           {/* Address */}
-          <div className="service-card">
-            <div className={`flex items-center mb-6 ${isRTL ? 'flex-row-reverse' : ''}`}>
+          <div className="service-card w-full max-w-md text-center">
+            <div className={`flex items-center justify-center mb-6 ${isRTL ? 'flex-row-reverse' : ''}`}>
               <MapPin className={`w-6 h-6 text-charcoal ${isRTL ? 'ml-3' : 'mr-3'}`} />
               <h3 className={`text-2xl font-playfair font-semibold text-charcoal ${isRTL ? 'font-arabic' : ''}`}>
                 {isRTL ? 'العنوان' : 'Address'}
               </h3>
             </div>
-            <div className={`space-y-3 ${isRTL ? 'text-right font-arabic' : 'font-poppins'}`}>
+            <div className={`space-y-3 ${isRTL ? 'font-arabic' : 'font-poppins'}`}>
               <p className="text-muted-foreground">{t.address.city}</p>
               <p className="text-muted-foreground">{t.address.district}</p>
               <p className="text-muted-foreground">{t.address.building}</p>
@@ -71,14 +71,14 @@ const Location = () => {
           </div>
           
           {/* Hours */}
-          <div className="service-card">
-            <div className={`flex items-center mb-6 ${isRTL ? 'flex-row-reverse' : ''}`}>
+          <div className="service-card w-full max-w-md text-center">
+            <div className={`flex items-center justify-center mb-6 ${isRTL ? 'flex-row-reverse' : ''}`}>
               <Clock className={`w-6 h-6 text-charcoal ${isRTL ? 'ml-3' : 'mr-3'}`} />
               <h3 className={`text-2xl font-playfair font-semibold text-charcoal ${isRTL ? 'font-arabic' : ''}`}>
                 {t.hours.title}
               </h3>
             </div>
-            <div className={`space-y-3 ${isRTL ? 'text-right font-arabic' : 'font-poppins'}`}>
+            <div className={`space-y-3 ${isRTL ? 'font-arabic' : 'font-poppins'}`}>
               <p className="text-muted-foreground text-lg">{t.hours.weekdays}</p>
               <p className="text-muted-foreground text-lg">{t.hours.friday}</p>
             </div>

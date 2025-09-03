@@ -1,7 +1,8 @@
 import React from 'react';
 import { useLanguage } from './LanguageContext';
-import { MessageCircle, Globe } from 'lucide-react';
+import { MessageCircle, Globe, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Sheet, SheetTrigger, SheetContent, SheetClose } from '@/components/ui/sheet';
 
 const Navbar = () => {
   const { language, toggleLanguage, isRTL } = useLanguage();
@@ -12,6 +13,7 @@ const Navbar = () => {
       about: 'About',
       services: 'Signature Services',
       menu: 'Menu',
+      gallery: 'Gallery',
       packages: 'Packages',
       location: 'Location & Hours',
       contact: 'Contact',
@@ -22,6 +24,7 @@ const Navbar = () => {
       about: 'من نحن',
       services: 'خدماتنا المميزة',
       menu: 'القائمة',
+      gallery: 'المعرض',
       packages: 'الباقات',
       location: 'الموقع والساعات',
       contact: 'تواصل معنا',
@@ -40,6 +43,7 @@ const Navbar = () => {
     { key: 'about', href: '#about' },
     { key: 'services', href: '#signature-services' },
     { key: 'menu', href: '#menu' },
+    { key: 'gallery', href: '#gallery' },
     { key: 'packages', href: '#packages' },
     { key: 'location', href: '#location-hours' },
     { key: 'contact', href: '#contact' }
@@ -48,13 +52,13 @@ const Navbar = () => {
   return (
     <nav className={`fixed top-0 w-full bg-pure-white/95 backdrop-blur-md border-b border-porcelain z-50 ${isRTL ? 'font-arabic' : 'font-poppins'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-32">
           {/* Logo */}
           <div className={`flex items-center ${isRTL ? 'flex-row-reverse' : ''}`}>
             <img 
-              src="/lovable-uploads/8cd053e2-b700-4229-a821-01f48f8569cd.png" 
+              src="/favicon.ico" 
               alt="Nails Muse Logo" 
-              className="h-12 w-auto"
+              className="h-32 w-auto"
             />
           </div>
           
@@ -71,8 +75,8 @@ const Navbar = () => {
             ))}
           </div>
           
-          {/* Right side - Language toggle + WhatsApp */}
-          <div className={`flex items-center ${isRTL ? 'flex-row-reverse space-x-reverse space-x-4' : 'space-x-4'}`}>
+          {/* Right side - Language toggle + Mobile menu button */}
+          <div className={`flex items-center ${isRTL ? 'flex-row-reverse' : ''} gap-x-4`}>
             <Button
               onClick={toggleLanguage}
               variant="ghost"
@@ -82,24 +86,43 @@ const Navbar = () => {
               <Globe className={`w-4 h-4 ${isRTL ? 'ml-2' : 'mr-2'}`} />
               {language === 'en' ? 'العربية' : 'English'}
             </Button>
-            
-            <Button
-              asChild
-              className="btn-whatsapp"
-            >
-              <a 
-                href="https://wa.me/966531090647"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center"
-              >
-                <MessageCircle className={`w-4 h-4 ${isRTL ? 'ml-2' : 'mr-2'}`} />
-                {t.whatsapp}
-              </a>
-            </Button>
+            {/* Mobile menu button using Sheet */}
+            <Sheet>
+              <SheetTrigger asChild>
+                <button className="md:hidden p-2 text-charcoal hover:text-ink-black transition-colors duration-300">
+                  <Menu className="w-6 h-6" />
+                </button>
+              </SheetTrigger>
+              <SheetContent side={isRTL ? 'left' : 'right'} className="w-80 max-w-[85vw] bg-pure-white border-none">
+                <div className="flex items-center justify-between mb-6">
+                  <img src="/favicon.ico" alt="Nails Muse Logo" className="h-10 w-auto" />
+                  <SheetClose className="p-2 text-charcoal hover:text-ink-black" />
+                </div>
+                <nav className={`space-y-4 ${isRTL ? 'text-right' : 'text-left'}`}>
+                  {navLinks.map((link) => (
+                    <SheetClose asChild key={link.key}>
+                      <button
+                        onClick={() => scrollToSection(link.href.substring(1))}
+                        className={`block w-full text-left py-3 px-4 text-lg font-medium text-charcoal hover:text-ink-black hover:bg-pearl rounded-lg transition-all duration-300 ${isRTL ? 'font-arabic' : 'font-poppins'}`}
+                      >
+                        {t[link.key as keyof typeof t]}
+                      </button>
+                    </SheetClose>
+                  ))}
+                </nav>
+                <div className={`mt-6 ${isRTL ? 'text-right' : 'text-left'}`}>
+                  <Button onClick={toggleLanguage} variant="outline" size="sm" className="text-charcoal border-porcelain hover:bg-pearl">
+                    <Globe className={`w-4 h-4 ${isRTL ? 'ml-2' : 'mr-2'}`} />
+                    {language === 'en' ? 'العربية' : 'English'}
+                  </Button>
+                </div>
+              </SheetContent>
+            </Sheet>
           </div>
         </div>
       </div>
+      
+      {/* Mobile Menu handled by Sheet */}
     </nav>
   );
 };

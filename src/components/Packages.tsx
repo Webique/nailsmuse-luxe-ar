@@ -61,9 +61,9 @@ const Packages = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 justify-items-center">
           {t.packages.map((pkg, index) => (
-            <div key={index} className="service-card text-center">
+            <div key={index} className="service-card text-center w-full max-w-sm">
               <h3 className={`text-2xl font-playfair font-semibold text-charcoal mb-4 ${isRTL ? 'font-arabic' : ''}`}>
                 {pkg.title}
               </h3>

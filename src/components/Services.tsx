@@ -1,8 +1,8 @@
 import React from 'react';
 import { useLanguage } from './LanguageContext';
-import nailServiceImage from '@/assets/nail-service.jpg';
-import lashServiceImage from '@/assets/lash-service.jpg';
-import wellnessServiceImage from '@/assets/wellness-service.jpg';
+import nailServiceImage from '@/assets/salon-services.jpg';
+import lashServiceImage from '@/assets/salon-products.jpg';
+import wellnessServiceImage from '@/assets/salon-display.jpg';
 
 const Services = () => {
   const { language, isRTL } = useLanguage();
@@ -61,9 +61,9 @@ const Services = () => {
           </h2>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
           {t.services.map((service, index) => (
-            <div key={index} className="service-card">
+            <div key={index} className="service-card w-full max-w-sm">
               <div className="relative overflow-hidden rounded-lg mb-6">
                 <img 
                   src={service.image}

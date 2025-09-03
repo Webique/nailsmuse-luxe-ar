@@ -37,7 +37,7 @@ const Contact = () => {
         
         <div className="space-y-8">
           <div className="text-3xl font-playfair font-semibold text-charcoal">
-            {t.phone}
+            <span dir="ltr" className="inline-block">{t.phone}</span>
           </div>
           
           <Button

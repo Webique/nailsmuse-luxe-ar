@@ -66,7 +66,7 @@ const Footer = () => {
           <div className={`space-y-4 ${isRTL ? 'font-arabic' : 'font-poppins'}`}>
             <div className={`flex items-center ${isRTL ? 'flex-row-reverse justify-end' : ''}`}>
               <img 
-                src="/lovable-uploads/8cd053e2-b700-4229-a821-01f48f8569cd.png" 
+                src="/favicon.ico" 
                 alt="Nails Muse Logo" 
                 className="h-16 w-auto filter brightness-0 invert"
               />
@@ -105,7 +105,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   className="text-pearl hover:text-pure-white transition-colors duration-300"
                 >
-                  {t.phone}
+                  <span dir="ltr" className="inline-block">{t.phone}</span>
                 </a>
               </div>
               <div className={`flex items-center ${isRTL ? 'flex-row-reverse' : ''}`}>
