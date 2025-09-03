@@ -1,8 +1,9 @@
 import React from 'react';
 import { useLanguage } from './LanguageContext';
-import nailServiceImage from '@/assets/salon-services.jpg';
-import lashServiceImage from '@/assets/salon-products.jpg';
+import nailServiceImage from '@/assets/nails-service.png';
+import lashServiceImage from '@/assets/lashes-service.png';
 import wellnessServiceImage from '@/assets/wellness.jpg';
+import saudiBrandsImage from '@/assets/saudi-brands.jpg';
 
 const Services = () => {
   const { language, isRTL } = useLanguage();
@@ -25,6 +26,11 @@ const Services = () => {
           title: 'Wellness Touches',
           description: 'Paraffin therapy, hand masks, aroma towels.',
           image: wellnessServiceImage
+        },
+        {
+          title: 'Saudi Brands',
+          description: 'A curated space for local Saudi brand owners to showcase their products in our elegant salon environment.',
+          image: saudiBrandsImage
         }
       ]
     },
@@ -45,6 +51,11 @@ const Services = () => {
           title: 'لمسات العناية',
           description: 'علاج البارافين، ماسكات اليدين، مناشف عطرية.',
           image: wellnessServiceImage
+        },
+        {
+          title: 'العلامات التجارية السعودية',
+          description: 'مساحة مخصصة لأصحاب العلامات التجارية المحلية لعرض منتجاتهم في بيئة صالوننا الأنيقة.',
+          image: saudiBrandsImage
         }
       ]
     }
@@ -61,14 +72,18 @@ const Services = () => {
           </h2>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-items-center">
           {t.services.map((service, index) => (
             <div key={index} className="service-card w-full max-w-sm">
               <div className="relative overflow-hidden rounded-lg mb-6">
                 <img 
                   src={service.image}
                   alt={service.title}
-                  className="w-full h-64 object-cover luxury-hover"
+                  className={`w-full h-64 luxury-hover ${
+                    service.title === 'Saudi Brands' || service.title === 'العلامات التجارية السعودية' 
+                      ? 'object-cover object-top' 
+                      : 'object-cover'
+                  }`}
                 />
               </div>
               <h3 className={`text-2xl font-playfair font-semibold text-charcoal mb-4 ${isRTL ? 'font-arabic text-right' : ''}`}>

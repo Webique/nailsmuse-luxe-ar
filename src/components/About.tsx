@@ -6,6 +6,10 @@ import salonLoungeImage from '@/assets/salon-lounge.jpg';
 const About = () => {
   const { language, isRTL } = useLanguage();
   
+  const scrollToServices = () => {
+    document.getElementById('signature-services')?.scrollIntoView({ behavior: 'smooth' });
+  };
+  
   const translations = {
     en: {
       title: 'About Nails Muse',
@@ -48,7 +52,10 @@ const About = () => {
                 />
               </div>
               <div className="space-y-4">
-                <div className="relative overflow-hidden rounded-2xl shadow-luxury">
+                <div 
+                  className="relative overflow-hidden rounded-2xl shadow-luxury cursor-pointer"
+                  onClick={scrollToServices}
+                >
                   <img 
                     src={salonLoungeImage}
                     alt="Nails Muse luxury salon interior lounge"
@@ -56,7 +63,10 @@ const About = () => {
                   />
                 </div>
                 <div className={`text-center ${isRTL ? 'font-arabic' : 'font-poppins'}`}>
-                  <h3 className="text-charcoal font-medium text-lg">
+                  <h3 
+                    className="text-charcoal font-medium text-lg cursor-pointer hover:text-ink-black transition-colors duration-300"
+                    onClick={scrollToServices}
+                  >
                     {t.nailsText}
                   </h3>
                 </div>
