@@ -65,12 +65,11 @@ const Footer = () => {
           {/* Logo & Tagline */}
           <div className={`space-y-4 ${isRTL ? 'font-arabic' : 'font-poppins'}`}>
             <div className={`flex items-center ${isRTL ? 'flex-row-reverse justify-end' : ''}`}>
-              <div className="w-8 h-8 bg-pure-white rounded-full flex items-center justify-center">
-                <div className="w-4 h-4 bg-charcoal rounded-full"></div>
-              </div>
-              <span className={`${isRTL ? 'mr-3' : 'ml-3'} text-xl font-playfair font-semibold`}>
-                Nails Muse
-              </span>
+              <img 
+                src="/lovable-uploads/8cd053e2-b700-4229-a821-01f48f8569cd.png" 
+                alt="Nails Muse Logo" 
+                className="h-16 w-auto filter brightness-0 invert"
+              />
             </div>
             <p className="text-pearl">
               {t.tagline}

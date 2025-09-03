@@ -48,19 +48,18 @@ const Navbar = () => {
   return (
     <nav className={`fixed top-0 w-full bg-pure-white/95 backdrop-blur-md border-b border-porcelain z-50 ${isRTL ? 'font-arabic' : 'font-poppins'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div className={`flex items-center ${isRTL ? 'flex-row-reverse' : ''}`}>
-            <div className="w-8 h-8 bg-charcoal rounded-full flex items-center justify-center">
-              <div className="w-4 h-4 bg-pure-white rounded-full"></div>
-            </div>
-            <span className={`${isRTL ? 'mr-3' : 'ml-3'} text-xl font-playfair font-semibold text-charcoal`}>
-              Nails Muse
-            </span>
+            <img 
+              src="/lovable-uploads/8cd053e2-b700-4229-a821-01f48f8569cd.png" 
+              alt="Nails Muse Logo" 
+              className="h-12 w-auto"
+            />
           </div>
           
           {/* Navigation Links - Hidden on mobile */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className={`hidden md:flex items-center ${isRTL ? 'space-x-reverse space-x-8' : 'space-x-8'}`}>
             {navLinks.map((link) => (
               <button
                 key={link.key}
@@ -73,14 +72,14 @@ const Navbar = () => {
           </div>
           
           {/* Right side - Language toggle + WhatsApp */}
-          <div className={`flex items-center space-x-4 ${isRTL ? 'flex-row-reverse space-x-reverse' : ''}`}>
+          <div className={`flex items-center ${isRTL ? 'flex-row-reverse space-x-reverse space-x-4' : 'space-x-4'}`}>
             <Button
               onClick={toggleLanguage}
               variant="ghost"
               size="sm"
               className="text-charcoal hover:text-ink-black"
             >
-              <Globe className="w-4 h-4 mr-2" />
+              <Globe className={`w-4 h-4 ${isRTL ? 'ml-2' : 'mr-2'}`} />
               {language === 'en' ? 'العربية' : 'English'}
             </Button>
             
@@ -94,7 +93,7 @@ const Navbar = () => {
                 rel="noopener noreferrer"
                 className="flex items-center"
               >
-                <MessageCircle className="w-4 h-4 mr-2" />
+                <MessageCircle className={`w-4 h-4 ${isRTL ? 'ml-2' : 'mr-2'}`} />
                 {t.whatsapp}
               </a>
             </Button>
