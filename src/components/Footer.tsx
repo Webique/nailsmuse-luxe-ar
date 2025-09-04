@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLanguage } from './LanguageContext';
-import { MessageCircle, MapPin } from 'lucide-react';
+import { MessageCircle, MapPin, Mail } from 'lucide-react';
 
 const Footer = () => {
   const { language, isRTL } = useLanguage();
@@ -12,6 +12,7 @@ const Footer = () => {
       contact: 'Contact',
       address: 'Al Naaman District, Abha',
       phone: '+966 531090647',
+      email: 'nailsmuse.sa@gmail.com',
       copyright: 'Nails Muse. All rights reserved.',
       links: {
         home: 'Home',
@@ -29,6 +30,7 @@ const Footer = () => {
       contact: 'تواصل معنا',
       address: 'حي النعمان، أبها',
       phone: '+966 531090647',
+      email: 'nailsmuse.sa@gmail.com',
       copyright: 'نايلز ميوز. جميع الحقوق محفوظة.',
       links: {
         home: 'الرئيسية',
@@ -106,6 +108,15 @@ const Footer = () => {
                   className="text-pearl hover:text-pure-white transition-colors duration-300"
                 >
                   <span dir="ltr" className="inline-block">{t.phone}</span>
+                </a>
+              </div>
+              <div className={`flex items-center ${isRTL ? 'flex-row-reverse' : ''}`}>
+                <Mail className={`w-5 h-5 ${isRTL ? 'ml-2' : 'mr-2'}`} />
+                <a 
+                  href={`mailto:${t.email}`}
+                  className="text-pearl hover:text-pure-white transition-colors duration-300"
+                >
+                  <span dir="ltr" className="inline-block">{t.email}</span>
                 </a>
               </div>
               <div className={`flex items-center ${isRTL ? 'flex-row-reverse' : ''}`}>
